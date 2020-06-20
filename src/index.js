@@ -1,17 +1,14 @@
+//  this is the source folder and entry point to react basically. We're importing the library we're importing react Dom and then we're importing the main app component.
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+// importing main parent app component which wraps around everything
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
+// Here React Dom is rendering the app component into this element with the ID of root, and is grabbing root div in public/index.html and inserting it into the app
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    // This app component being loaded is app.js
+    <App />,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

@@ -1,6 +1,7 @@
 //formatted like any other class based component
 
 import React, { Component } from 'react';
+import TodoItem from './TodoItem';
 
 class Todos extends Component {
   //render method (JSX attribute) React.htmlATTRIBUTES<HTMLElement.className?:string
@@ -10,8 +11,12 @@ class Todos extends Component {
 
     // next thing we want to do since we have this array of to do's we need to loop through them and then output something, so in react what we do is we use the map method, which is a high order array. and it's used it's used for a lot of different things but basically it can return an array from an array but we're,but we're just using it to loop through and then outputting JSX
 
+    // we get hello three times and the reason we're seeing hello three times is because they are coming from the state (App.js), passed in as props and we're mapping through those props and then we're outputting to-do item which only has < Hello /> inside of it (TodoItem), so obviously hello is not what we want to display here.
+
+    // remember this is a prop and todo is being passed into TodoItem as a prop
+
     return this.props.todos.map((todo) => (
-      <h3>{ todo.title }</h3>
+      < TodoItem todo={todo}/>
     ));
 
     }

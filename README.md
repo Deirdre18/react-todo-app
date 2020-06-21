@@ -1,7 +1,9 @@
 Video tutorial taken from Traversy Media - https://www.youtube.com/watch?v=sBws8MSXN7A
 
+In this crash course you will learn what React JS is and the fundamentals such as components, state, props, JSX, events, etc. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This project wasn't bootstrapped but can be, with [Create React App](https://github.com/facebook/create-react-app). Custom CSS was used throughout this project.
 
 ## Available Scripts
 

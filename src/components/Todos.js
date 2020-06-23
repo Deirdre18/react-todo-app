@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
-//now prop-types are sort of a validation for properties that a component should have, and we can set the type we can also set them to be required or not, so our todo component has a prop of todo
+//now prop-types are sort of a validation for properties that a component should have, and we can set the type we can also set them to be required or not, so our todo component has a prop of todos (App.js), so we import PropTypes
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
@@ -24,7 +24,7 @@ class Todos extends Component {
 
     }
   }
-
+  //PropTypes
   //we want to define any prop-types for this class
 
   //so name of class (Todos) and then it's going to be an array of objects of Prop, and is required. This is good practice to do

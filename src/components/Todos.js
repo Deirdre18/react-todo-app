@@ -14,9 +14,10 @@ class Todos extends Component {
     // we get hello three times and the reason we're seeing hello three times is because they are coming from the state (App.js), passed in as props and we're mapping through those props and then we're outputting to-do item which only has < Hello /> inside of it (TodoItem), so obviously hello is not what we want to display here.
 
     // remember this is a prop and todo is being passed into TodoItem as a prop
+    // in console you can see error saying each child in an array or iterator should have a unique key prop okay so that when we map through something it's actually creating what's called a list and lists need they should have keys you I mean it doesn't break the application but we'll just keep seeing this warning so we just simply want to add a key onto this which should be something unique now remember we have access to the todo and that to do has an ID which is unique so I'm going to say the key is going to be to do dot ID and we'll save and now that error goes away
 
     return this.props.todos.map((todo) => (
-      < TodoItem todo={todo}/>
+      < TodoItem key={todo.id} todo={todo}/>
     ));
 
     }

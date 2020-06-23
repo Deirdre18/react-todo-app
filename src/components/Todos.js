@@ -2,9 +2,11 @@
 
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
+//now prop-types are sort of a validation for properties that a component should have, and we can set the type we can also set them to be required or not, so our todo component has a prop of todo
+import PropTypes from 'prop-types';
 
 class Todos extends Component {
-  //render method (JSX attribute) React.htmlATTRIBUTES<HTMLElement.className?:string
+  // render method (JSX attribute) React.htmlATTRIBUTES<HTMLElement.className?:string
 
   //then inside the class we have a render method, which is a lifecycle method and it's the only one that's actually required because it's needed to actually render the component in the browser and that's going to return what's called JSX. This looks like HTML but it's actually JSX. It's basically an easier way to write javascript for output in the browser. You could actually write in pure JavaScript but you would never want to, as it would be 20 times as hard, so that's why they use JSX. You can use javascript within JSX and put it between curley braces.
   render() {
@@ -22,4 +24,12 @@ class Todos extends Component {
 
     }
   }
+
+  //we want to define any prop-types for this class
+
+  //so name of class (Todos) and then it's going to be an array of objects of Prop, and is required. This is good practice to do
+  Todos.propTypes = { 
+    todos: PropTypes.array.isRequired
+    }
+
   export default Todos;

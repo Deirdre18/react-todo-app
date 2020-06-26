@@ -15,7 +15,11 @@ export class TodoItem extends Component {
           textDecoration: this.props.todo.completed ? "line-through" : "none",
         };
       };
-    
+      //Adding method. Want to use arrow functions. When u have an event and calling a method it takes an event parameter. However below code produces error saying can't read props of undefined, so there are 2 options (1) bind (reason we can use that in render or other life cycle methods is because it's part of component class), however this is a custom method rather than component class, so doesn't have access, so we do following. 
+      markComplete= (e) => {
+          console.log(this.props)
+      }
+
     render() {
 
         return (
@@ -25,7 +29,9 @@ export class TodoItem extends Component {
             
             //can also add style as function, so use a method in a class
             <div style={this.getStyle()}>
-            
+            {/* {''} is an expression with a space} and we add an event onChange, same as vanilla javascript only camelCase using method. Binding method below shows props but better way to do this is to add an arrow function (put = and then arrow) in method (above render)*/}
+                <input type="checkbox" onChange={this.markComplete} />{''}
+                {/*<input type="checkbox" onChange={this.markComplete.bind(this)}/>{''}*/}
                 <p>{ this.props.todo.title }</p>
             </div>
         )

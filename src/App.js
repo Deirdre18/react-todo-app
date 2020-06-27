@@ -33,10 +33,14 @@ class App extends Component {
       ]
     };
 
-markComplete =() => {
-  console.log("From App.js")
-}
+// markComplete =() => {
+//   console.log("From App.js")
+// }
 
+//Grabbing id, which has been passed through from TodoItem to Todos and now App.js
+markComplete =(id ) => {
+  console.log(id)
+}
 render() {
  
   return (

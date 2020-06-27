@@ -6,6 +6,10 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
+
+  //markComplete = () => {
+    //console.log("Hello")
+  //}
   // render method (JSX attribute) React.htmlATTRIBUTES<HTMLElement.className?:string
 
   //then inside the class we have a render method, which is a lifecycle method and it's the only one that's actually required because it's needed to actually render the component in the browser and that's going to return what's called JSX. This looks like HTML but it's actually JSX. It's basically an easier way to write javascript for output in the browser. You could actually write in pure JavaScript but you would never want to, as it would be 20 times as hard, so that's why they use JSX. You can use javascript within JSX and put it between curley braces.
@@ -19,7 +23,11 @@ class Todos extends Component {
     // in console you can see error saying each child in an array or iterator should have a unique key prop okay so that when we map through something it's actually creating what's called a list and lists need they should have keys you I mean it doesn't break the application but we'll just keep seeing this warning so we just simply want to add a key onto this which should be something unique now remember we have access to the todo and that to do has an ID which is unique so I'm going to say the key is going to be to do dot ID and we'll save and now that error goes away
 
     return this.props.todos.map((todo) => (
-      < TodoItem key={todo.id} todo={todo}/>
+      //Creating prop of markComplete to this component
+      //< TodoItem key={todo.id} todo={todo} markComplete={this.markComplete}/>
+      //we have to go up one level, as state is in App.js, so we add props here, and then we attach markComplete to todos in App.js (and change the state)
+      < TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}/>
+      
     ));
 
     }

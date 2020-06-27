@@ -33,12 +33,17 @@ class App extends Component {
       ]
     };
 
-render() {
+markComplete =() => {
+  console.log("From App.js")
+}
 
+render() {
+ 
   return (
     <div className="App">
       {/*taking todos that are in app component state and passing them down to todos component as prop (as todos component hasn't got prop or state). We add prop (property) same as a html attribute. We're taking the todos in our state and passing to todos component as a prop. We now need to figure out how to acces this in our todos component.*/}
-      <Todos todos = {this.state.todos}/>
+      <Todos todos = {this.state.todos} markComplete={this.markComplete} />
+
     </div>
   );
 }

@@ -16,13 +16,13 @@ class App extends Component {
         {
           id: 1,
           title: "put out the trash",
-          completed: true
+          completed: false
         },
 
         {
           id: 2,
           title: "dinner with wife",
-          completed: true
+          completed: false
         },
 
         {
@@ -38,8 +38,22 @@ class App extends Component {
 // }
 
 //Grabbing id, which has been passed through from TodoItem to Todos and now App.js
+// markComplete =(id ) => {
+//   console.log(id)
+// }
+
+// think of as the state like it's a cloud of data that hovers above all the components and then we're just sending something up to change it and then it rains back down. So it's it's a one-way data flow 
+
+//now idea is to set state for each particular id. We're looking at state as a whole, which is an object, and we want to change something in 'todos', so we basically match the id that's passed in here and if it matches, we want to update the completed value when it's checked, so we will use map
 markComplete =(id ) => {
-  console.log(id)
+  //here we use an arrow function and if statement to check that the current todo we're iterating through has an id that is equal to the id passed into the function
+  this.setState({todos: this.state.todos.map(todo => {
+    if(todo.id === id) {
+      //we're toggling here (toggle complete), so whatever the opposite is, we're setting it to.
+      todo.completed = !todo.completed
+    }
+    return todo;
+  })});
 }
 render() {
  

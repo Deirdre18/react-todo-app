@@ -26,7 +26,8 @@ class Todos extends Component {
       //Creating prop of markComplete to this component
       //< TodoItem key={todo.id} todo={todo} markComplete={this.markComplete}/>
       //we have to go up one level, as state is in App.js, so we add props here, and then we attach markComplete to todos in App.js (and change the state)
-      < TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}/>
+      //here we're creating props for delTodo (going up), same as markComplete
+      <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} delTodo={this.props.delTodo}/>
       
     ));
 

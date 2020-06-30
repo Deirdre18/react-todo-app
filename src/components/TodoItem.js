@@ -23,7 +23,7 @@ export class TodoItem extends Component {
       //}
     //this is called restructing, where we're pulling out values and is easier way
     render() {
-        const {id,title} = this.props.todo;
+        const {id,title, completed} = this.props.todo;
 
         return (
             //in JSX we can actually use inline style which allows us to have our markup our, our functionality and our styling all within our component, so lets add styling in <div> and we use double {} for inline styling. There is no hyphenatio in inline styling and camelCase is used. Also double curley braces {{ backgroundColor: '#9999ff' }} can be used instead of variable
@@ -36,9 +36,14 @@ export class TodoItem extends Component {
                 {/*binding, as we have access todo*/}
                 {/*<input type="checkbox" onChange={this.props.markComplete.bind(this, this.props.todo.id)} />{''}*/}
                 {/*destructuring - pulling out values of id and title, passing id up through todos and app.js (now we can grab id in app.js)*/}
+                <p>
                 <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} />{''}
-                {/*<input type="checkbox" onChange={this.markComplete.bind(this)}/>{''}*/}
-                <p>{ title }</p>
+                {/*<input type="checkbox" onChange={this.markComplete.bind(this)}/>{''}*/}                   
+                { title }
+                {/*adding an event so something happens when x button is clicked} - doing same thing with props, sending onClick style up to were our state is (App.js). We use destructuring for id variable*/}
+                <button onClick={this.props.delTodo.bind(this, id)} style={btnStyle}>x</button>
+
+                </p>
                 {/*<p>{ this.props.todo.title }</p>*/}
             </div>
         )
@@ -54,6 +59,19 @@ TodoItem.propTypes = {
 
 //can also use variable - only need one set of {}
 //const itemStyle = { backgroundColor: '#9999ff' }
+
+const btnStyle = {
+    background: '#ff0000',
+    color: '#fff',
+    border: 'none',
+    padding: '5px 9px',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    float: 'right'
+
+
+
+}
 
 
 export default TodoItem

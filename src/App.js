@@ -49,19 +49,27 @@ markComplete =(id ) => {
   //here we use an arrow function and if statement to check that the current todo we're iterating through has an id that is equal to the id passed into the function
   this.setState({todos: this.state.todos.map(todo => {
     if(todo.id === id) {
-      //we're toggling here (toggle complete), so whatever the opposite is, we're setting it to.
+      //we're toggling here (toggle complete), so whatever the opposite is, we're setting it to. Toggline state at top and that state is being brought down through the props into components. State is like a cloud of data hovering above components and we're just sending something up to change it and then it reigns back down. It's a one-way data flow.
+
+      //now we want to delete items, doing same thing but calling a method on a prop and then it comes back up to App.js, and get rid of that todo
       todo.completed = !todo.completed
     }
     return todo;
   })});
 }
+//Delete Todo
+delTodo = (id) => {
+  console.log(id)
+}
+
 render() {
  
   return (
     <div className="App">
       {/*taking todos that are in app component state and passing them down to todos component as prop (as todos component hasn't got prop or state). We add prop (property) same as a html attribute. We're taking the todos in our state and passing to todos component as a prop. We now need to figure out how to acces this in our todos component.*/}
-      <Todos todos = {this.state.todos} markComplete={this.markComplete} />
-
+      {/*doing same thing but no props as we're actually running it in App.js (going up - adding delTodo to App.js)*/}
+      <Todos todos = {this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
+       
     </div>
   );
 }

@@ -58,9 +58,17 @@ markComplete =(id ) => {
   })});
 }
 //Delete Todo
+// delTodo = (id) => {
+//   console.log(id)
+// }
+
+//Manipulating our state by removing one of the deleted todos, and we use filter method (high order array method, which loops through and based on a condition it will return another array). We only want to return todos that don't match the id passed in, because we want to get rid of that one
+
 delTodo = (id) => {
-  console.log(id)
+  //passing in our state object (we're dealing with the todos. We basically everything that's already there and use spread operator for that, which is 3 dots. So we want to filter out the id that is not the id here - in other words it's going to filter out the id that we're deleting)
+  this.setState ({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
 }
+
 
 render() {
  

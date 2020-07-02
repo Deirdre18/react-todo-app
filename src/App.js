@@ -3,11 +3,13 @@
 import React, { Component } from 'react';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
+import Addtodo from './components/Addtodo';
+
 
 class App extends Component {
   //render method 
 
-  //then inside the class we have a render method, which is a lifecycle method and it's the only one that's actually required because it's needed to actually render the component in the browser and that's going to return what's called JSX. This looks like HTML but it's actually JSX. It's basically an easier way to write javascript for output in the browser. You could actually write in pure JavaScript but you would never want to, as it would be 20 times as hard, so that's why they use JSX. You can use javascript within JSX and put it between curley braces.
+  //then inside the class we have a render method which is a lifecycle method and it's the only one that's actually required because it's needed to actually render the component in the browser and that's going to return what's called JSX. This looks like HTML but it's actually JSX. It's basically an easier way to write javascript for output in the browser. You could actually write in pure JavaScript but you would never want to, as it would be 20 times as hard, so that's why they use JSX. You can use javascript within JSX and put it between curley braces.
 
   //creating javascript object and then array for todos
     state = {
@@ -77,6 +79,7 @@ render() {
       {/*taking todos that are in app component state and passing them down to todos component as prop (as todos component hasn't got prop or state). We add prop (property) same as a html attribute. We're taking the todos in our state and passing to todos component as a prop. We now need to figure out how to acces this in our todos component.*/}
       {/*doing same thing but no props as we're actually running it in App.js (going up - adding delTodo to App.js)*/}
       <Header/ >
+      <Addtodo />
       <Todos todos = {this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
        
     </div>

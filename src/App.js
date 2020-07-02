@@ -1,7 +1,7 @@
 //formatted like any other class based component
 
 import React, { Component } from 'react';
-import './App.css';
+import Header from './components/layout/Header';
 import Todos from './components/Todos';
 
 class App extends Component {
@@ -65,7 +65,7 @@ markComplete =(id ) => {
 //Manipulating our state by removing one of the deleted todos, and we use filter method (high order array method, which loops through and based on a condition it will return another array). We only want to return todos that don't match the id passed in, because we want to get rid of that one
 
 delTodo = (id) => {
-  //passing in our state object (we're dealing with the todos. We basically everything that's already there and use spread operator for that, which is 3 dots. So we want to filter out the id that is not the id here - in other words it's going to filter out the id that we're deleting)
+  //passing in our state object (we're dealing with the todos. We basically everything that's already there and use spread operator for that, which is 3 dots. So we want to filter out the id that is not the id here - in other words it's going to filter out the id that we're deleting). So when we click on item to delete, it will delete it but will come back when we reload, as we're not persisting to a database (even jason placeholder doesn't delete it from database, it doesn't have a backend, as react is a frontend UI framework/library, which takes care of the delete)
   this.setState ({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
 }
 
@@ -76,6 +76,7 @@ render() {
     <div className="App">
       {/*taking todos that are in app component state and passing them down to todos component as prop (as todos component hasn't got prop or state). We add prop (property) same as a html attribute. We're taking the todos in our state and passing to todos component as a prop. We now need to figure out how to acces this in our todos component.*/}
       {/*doing same thing but no props as we're actually running it in App.js (going up - adding delTodo to App.js)*/}
+      <Header/ >
       <Todos todos = {this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
        
     </div>

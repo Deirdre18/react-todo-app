@@ -72,10 +72,23 @@ delTodo = (id) => {
   //passing in our state object (we're dealing with the todos. We basically everything that's already there and use spread operator for that, which is 3 dots. So we want to filter out the id that is not the id here - in other words it's going to filter out the id that we're deleting). So when we click on item to delete, it will delete it but will come back when we reload, as we're not persisting to a database (even jason placeholder doesn't delete it from database, it doesn't have a backend, as react is a frontend UI framework/library, which takes care of the delete)
   this.setState ({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
 }
+//now we need to add Addtodo to our state, so we use setState and spread operator. We can't just change it, we basically have to make a copy of it and that's what the spread operator does. Creating object, title = title which is passed in and completed 
 
+//putting newTodo as a variable. So this should take the newTodo and add it to the state
 Addtodo = (title) => {
-  console.log(title)
+  const newTodo = {
+    id: 4,
+    //can just do title, in es6 since key and value are the same
+    title,
+    completed: false
+  }
+  //copying what we have currently
+  this.setState ({ todos: [...this.state.todos, newTodo] });
 }
+
+// Addtodo = (title) => {
+//   console.log(title)
+// }
 
 render() {
  

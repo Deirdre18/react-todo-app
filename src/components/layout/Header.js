@@ -7,12 +7,21 @@ import React from 'react'
 function Header() {
     return (
         //will be some links for about page but won't do that just yet
-        <header>
+        <header style={headerStyle}>
             <h1>TodoList</h1>
         </header>
         )
 }
 
 //exporting function
+
+const headerStyle={
+
+    background: '#333',
+    color: '#fff',
+    textAlign: 'center',
+    padding: '10px'
+    
+}
 
 export default Header;

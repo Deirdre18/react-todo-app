@@ -4,8 +4,12 @@ import React, { Component } from 'react';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import Addtodo from './components/Addtodo';
+//this will generate an id for each item added
+import {v4 as uuid} from "uuid";
 
 import './App.css';
+
+const id = uuid()
 
 
 class App extends Component {
@@ -18,19 +22,19 @@ class App extends Component {
       todos: [
 
         {
-          id: 1,
+          id: uuid (),
           title: "put out the trash",
           completed: false
         },
 
         {
-          id: 2,
+          id: uuid (),
           title: "dinner with wife",
           completed: false
         },
 
         {
-          id: 3,
+          id: uuid (),
           title: "meeting with boss",
           completed: false
         }
@@ -74,10 +78,10 @@ delTodo = (id) => {
 }
 //now we need to add Addtodo to our state, so we use setState and spread operator. We can't just change it, we basically have to make a copy of it and that's what the spread operator does. Creating object, title = title which is passed in and completed 
 
-//putting newTodo as a variable. So this should take the newTodo and add it to the state
+//putting newTodo as a variable. So this should take the newTodo and add it to the state. When we add a new object it gets added but if we add another new object it has same id (4) as previous added object. When we get to json placeholder, an id is given when a new object is created
 Addtodo = (title) => {
   const newTodo = {
-    id: 4,
+    id: uuid(),
     //can just do title, in es6 since key and value are the same
     title,
     completed: false

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
+import About from './components/pages/About';
 import Addtodo from './components/Addtodo';
 //this will generate an id for each item added
 import {v4 as uuid} from "uuid";
@@ -102,6 +103,7 @@ render() {
         <div className="container">
           <Header />
           <Route
+            exact
             path="/"
             render={props => (
               <React.Fragment>
@@ -114,11 +116,12 @@ render() {
               </React.Fragment>
             )}
           />
-      </div>
+          <Route path="/about" component={About} />
         </div>
-      </Router>
-    );
-  }
+      </div>
+    </Router>
+  );
+}
 }
 
 export default App;

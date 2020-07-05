@@ -8,8 +8,10 @@ import About from './components/pages/About';
 import Addtodo from './components/Addtodo';
 //this will generate an id for each item added
 import {v4 as uuid} from "uuid";
+import axios from 'axios';
 
 import './App.css';
+
 
 const id = uuid()
 
@@ -21,28 +23,16 @@ class App extends Component {
 
   //creating javascript object and then array for todos
     state = {
-      todos: [
-
-        {
-          id: uuid (),
-          title: "put out the trash",
-          completed: false
-        },
-
-        {
-          id: uuid (),
-          title: "dinner with wife",
-          completed: false
-        },
-
-        {
-          id: uuid (),
-          title: "meeting with boss",
-          completed: false
-        }
-      ]
-    };
-
+      todos: []
+    }
+//usin another lifecycle method 'componentDidMount' which runs after the component mounts
+componentDidMount () {
+  //this will give us a promise, then a response and it will have a data property attached. Adding a parameter limiting todos to 10
+  axios.get ('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    //.then(res => console.log(res.data))
+    //we want to put the 10 todos in our state (in todos array)
+    .then(res => this.setState({todos:res.data}))
+  }
 // markComplete =() => {
 //   console.log("From App.js")
 // }

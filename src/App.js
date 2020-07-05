@@ -1,6 +1,7 @@
 //formatted like any other class based component
 
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import Addtodo from './components/Addtodo';
@@ -97,6 +98,7 @@ Addtodo = (title) => {
 render() {
  
   return (
+    <Router>
     <div className="App">
       {/*taking todos that are in app component state and passing them down to todos component as prop (as todos component hasn't got prop or state). We add prop (property) same as a html attribute. We're taking the todos in our state and passing to todos component as a prop. We now need to figure out how to acces this in our todos component.*/}
       {/*doing same thing but no props as we're actually running it in App.js (going up - adding delTodo to App.js)*/}
@@ -106,6 +108,7 @@ render() {
         <Todos todos = {this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
       </div>       
     </div>
+    </Router>
   );
 }
 }
